@@ -29,19 +29,26 @@ for i in 2...5 {
  - Experiment:
  What's the difference between `2...5` vs `2..<5`?
  */
-
+for i in 2..<5 {
+    print("My Current Index: \(i)")
+}
 
 /*:
  - Experiment:
   Use a ranged for loop to search through the 'pets' array above for the word 'pig' and print out its index.
  */
-
+for (index, pet) in pets.enumerated() {
+    if pet == "pig" {
+        print("\(index) - \(pet)")
+    }
+}
 
 /*:
  - Experiment:
  Create an array of random numbers of your choosing then make a for loop that adds 1 to each number.
  */
-
+let aaa = [1, 3,4, 2, 5, 7,8]
+print(aaa.map{($0 + 1)})
 
 /*:
  - Experiment:
@@ -73,6 +80,10 @@ print(largest)
  Given a number `N`, from 0 to `N`, add up all the odd numbers and print out the result.
  ie: N = 5, 1+3+5 = 9
  */
+//for number in 0 {
+//    <#code#>
+//}
+
 
 
 /*:
@@ -89,5 +100,7 @@ print(largest)
  */
 
 let numberArray = [1, 4, 5, 5, 5, 3, 2, 1, 4, 2, 2, 2, 1]
-
+for number in numberArray {
+    
+}
 //: [Next](@next)

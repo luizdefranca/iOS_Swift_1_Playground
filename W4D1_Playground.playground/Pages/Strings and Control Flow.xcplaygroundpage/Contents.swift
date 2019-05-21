@@ -25,13 +25,16 @@ print("Your name is \(name)")
  - Example:
  "Your name is Joe Smith, your age is 35, and your height is 175cm."
  */
+let person = "John"; let age = 32; let height = 180
 
-
+print("Your name is \(person), your age is \(age), and your height is \(height)cm.")
 /*:
  - Experiment:
  Math calculations can be included within the "`\()`" such as adding two variables together. Try printing out a sentence using string interpolation and include a calculation.
  */
-
+let pi = 3.14;
+let radius = 2.0;
+print("The area of circle with radius equals \(radius) is \(2 * pi * radius * radius)")
 /*:
  ## Control Flow
 
@@ -51,7 +54,12 @@ if myConditional {
  - Experiment:
   Try creating your own 'if' statement that determines whether a given number is even, odd or zero.
  */
-
+let number = 13
+if number % 2 == 0 {
+    print("The number \(number) is even")
+} else {
+    print("The number \(number) is odd")
+}
 
 /*:
  - Experiment:
@@ -77,12 +85,25 @@ default:
  - Callout(Challenge):
  Create an if/else statement to print out the grammatically correct description of the number of bicycles there are. Declare a 'bicycleCount' variable with any number you wish then cover the conditions for zero bicycles, 1 bicycle, and more than 1 bicycle. ie: 'There are zero bicycles', 'There is 1 bicycle', 'There are 20 bicycles'
  */
-
+let bicycles = 13
+if bicycles == 1 {
+    print ("There is \(bicycles) bicycle")
+} else {
+    print("There are \(bicycles) bicycles")
+}
 
 /*:
  - Callout(Challenge):
  Rewrite the above Challenge as a switch statement
  */
+
+switch bicycles {
+case 1:
+    print ("There is \(bicycles) bicycle")
+
+default:
+    print("There are \(bicycles) bicycles")
+}
 
 
 /*:

@@ -19,12 +19,15 @@ var doubleNumberValue: Double? = nil
  - Experiment:
  Declare a non-optional variable of a `String` and set it to `nil`. What happens?
  */
-
+var variableString: String? = nil;
+print(variableString)
 
 /*:
  - Experiment:
  Declare an optional variable of a type `String` and set an initial `String` value to it. Then set it to `nil` on the next line. Does this work? Why or why not?
  */
+var vString : String? = "Anything"
+vString = nil
 
 
 /*:
@@ -42,12 +45,15 @@ ratio * convertIntegerValue // now this works!
 /*:
  Now let's say I have a `String` that contains digits and I want to use the numbered value of the `String` to multiply with another `Double`.
  */
-
+var one = "1.0";
+if let number = Double(one) {
+print (number * 2.0)
+}
 /*:
  - Experiment:
  Declare a `String` containing digits and try converting it to a `Double` the same way shown in the above example. What do you notice about the variable type? Hint: Use 'Option' + Mouse Click on the variable to see the type
  */
-
+let otherNumber = Double(one)
 
 /*:
  - Experiment:
@@ -79,12 +85,12 @@ print("\(myOptionalDouble!)")
 */
 
 
-
+print(Double("3"))
 /*:
  - Experiment:
  Go back and change your `String` to something that has no digits. What happens and why?
  */
-
+print(Double(""))
 
 
 /*:
@@ -92,13 +98,17 @@ print("\(myOptionalDouble!)")
  Declare an optional variable of a type `String` and set an initial `String` value to it. Try printing it.
  Now print it again, but this time unwrap the optional variable using the `'!'`. What's different about the two lines you printed?
  */
+var k : String? = "test"
+print(k)
+print(k!)
 
 
 /*:
  - Experiment:
  Try setting an optional `String` variable to a non-optional `String` variable. What happens? What can you do to prevent the compiler from throwing an error?
  */
-
+var l : String? = "hfhfh"
+//var j : String = l
 
 /*:
  The next way to deal with optionals is called `"Conditional unwrapping"` or sometimes casually called an `"if-let"`. It's **much** safer, and won't break your Playground, or any of your code.
@@ -121,20 +131,46 @@ if let unwrapped = gravityConstant {
  - Experiment:
  Try changing `gravityConstant` to nil. What happens?
  */
+let gravityConstant2: Double? = nil
 
+if let unwrapped = gravityConstant2 {
+    // unwrapped exists in this block, and is number unwrapped.
+    print("\(unwrapped) is a Double and no longer a Double?")
+} else {
+    // unwrapped doesn't exist in this block.
+    print("gravityConstant did not unwrap")
+}
 
 /*:
  - Experiment:
  Create an array with containing elements of any type of your choice. Try experimenting with the array methods `'first'` and `'last'` to find out what they do. You'll see that both return optional values. Print out the values of first and last by using conditional unwrapping.
  */
+let theArray = [2,3,4,5,5,5,6]
 
+print(theArray.first)
+
+if let first = theArray.first , let last = theArray.last {
+    print(first)
+    print(last)
+}
 
 /*:
  - Experiment:
  Using the same array, experiment with the array method `'indexOf'` and find out what it does. Print out the value using conditional unwrapping.
  */
+//print(theArray.indexof(5))
 
 
+var cars = [
+    "Mazda3" :50000,
+    "CRV" :60000,
+    "Hummer" : 100000     ];
+if let c1 = cars["Mazda3"], let c2 = cars["CRV"], let c3 = cars["Hummer"]{
+    print(c1)
+    print(c2)
+    print(c3)
+    print(cars["any"])
+}
 /*:
  - Callout(Challenge):
  

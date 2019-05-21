@@ -23,6 +23,11 @@ namedPersonTuple.age
  - Experiment:
  Try creating your own tuple. Mix in different variable types and try mixing some parameters with names and some without. Does it still work?
  */
+var myTuple = ( one: "1", two: 2, three: 3.0)
+
+myTuple.one
+myTuple.two
+myTuple.three
 
 
 /*:
@@ -52,6 +57,12 @@ for (kind, numbers) in interestingNumbers {
 To test: call your new function with eligable true and false, and print the two values
  (Hint: Use optional return value and conditional unwrapping)
  */
+func myFunc (name : String, age: Int, eligable : Bool) -> (String, Int)?{
+    if eligable {
+        return (name, age)
+    }
+    return nil
+}
 
 
 /*:
@@ -64,23 +75,40 @@ To test: call your new function with eligable true and false, and print the two 
 
 enum Months: Int{
     case January = 1
-    case Feburary
-    case March
+    case Feburary = 2
+    case March = 3
     case April
     case May, June, July, August
     //...
-    
+
+    func compare(month : Months) -> Int{
+        return abs(self.rawValue - month.rawValue )
+    }
     func abbreviatedStringForm() -> String {
         switch self {
-            default:
-                return ""
+        case .January:
+            return "Jan"
+        case .Feburary:
+            return "Feb"
+        case .March:
+            return "Mar"
+        case .April:
+            return "Apr"
+        case .May:
+            return "May"
+
+        default:
+            return ""
         }
     }
 }
 
 //: Now we can represents the months in our program with easy readiablity and minimal mistakes.
 let januaryMonth = Months.January
+print(januaryMonth.rawValue)
 let marchMonth = Months.March
+januaryMonth.compare(month: marchMonth)
+
 
 /*:
  - Experiment:
@@ -106,6 +134,31 @@ Try removing the '= 1' from the Months enum. Now what is different?
  - Callout(Challenge):
  Create enums for the game "Rock, Paper, Scissors". Create a function within the enum that compares two hand shapes and determines the winner. Then create a function that returns ✋ , ✌️, or 👊 given rock, paper, or scissors.
 */
+enum Game {
+    case paper
+    case rock
+    case scissors
+
+    func description() -> (String) {
+        switch self {
+        case .paper:
+            return "✋"
+        case .rock:
+            return "👊"
+
+        default:
+            return "✌️"
+        }
+    }
+    func compare(value: Game) -> (String) {
+        if self == .paper && value == .rock {
+            return "Paper hit rock"
+        } else {
+            return "Paper "
+        }
+
+    }
+}
 
 
 //: [Next](@next)
